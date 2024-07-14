@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:34:55 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/11 18:25:47 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:36:14 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	t_stack 	*a;
-	t_stack		*b;
+	t_stack	*a;
+	t_stack	*b;
+
 	a = NULL;
 	b = NULL;
 	if (!ps_parser(ac, av, &a))

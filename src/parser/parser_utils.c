@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:07:19 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/11 19:14:25 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:35:06 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	check_digits(char **av)
 
 int	string_to_int(int ac, char **av, t_stack **a)
 {
-	char **split;
-	
+	char	**split;
+
 	if (ac == 2)
 	{
 		split = ft_split(av[1], ' ');
 		if (!check_digits(split))
-			return(free_split(split), 0);
+			return (free_split(split), 0);
 		organize_data(av, split, a);
 	}
 	return (1);
@@ -44,8 +44,8 @@ int	string_to_int(int ac, char **av, t_stack **a)
 
 int	check_duplicates(t_stack **a)
 {
-	t_stack *head;
-	t_stack *next_node;
+	t_stack	*head;
+	t_stack	*next_node;
 
 	head = *a;
 	next_node = head;

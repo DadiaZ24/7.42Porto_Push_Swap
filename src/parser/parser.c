@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 15:07:28 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/11 19:21:29 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:35:45 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ps_parser(int ac, char **av, t_stack **a)
 {
 	char	**split;
-	
+
 	split = NULL;
 	if (ac < 2)
 		return (0);

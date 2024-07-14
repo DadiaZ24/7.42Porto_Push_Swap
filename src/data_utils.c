@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:51:38 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/11 19:15:07 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:34:21 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	organize_data(char **av, char **split, t_stack **a)
 {
 	int		i;
 	t_stack	*tmp;
-	
+
 	if (split)
 	{
 		*a = create_new_node(atoi(split[0]));

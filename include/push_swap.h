@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 15:35:10 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/11 19:00:39 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/14 15:35:52 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,9 @@
 typedef struct s_stack
 {
 	int				number;
-	struct s_stack 	*prev;
-	struct s_stack 	*next;
+	struct s_stack	*prev;
+	struct s_stack	*next;
 }	t_stack;
-
 
 //________________________________________________________________
 //|__________________________[FUNCTIONS]__________________________|
