@@ -14,7 +14,7 @@
 
 void    swap_nodes(t_stack *(*stack))
 {
-    if (!(*stack))
+    if (!(*stack) || get_lst_size(stack) <= 1)
         return ;
     ((*stack)) = ((*stack))->next;
     (*stack)->prev->prev = (*stack);

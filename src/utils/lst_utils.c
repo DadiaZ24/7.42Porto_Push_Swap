@@ -53,3 +53,16 @@ void	lst_add_end(t_stack **list, t_stack *node)
 	node->prev = tmp;
 	tmp->next = node;
 }
+
+long	get_lst_size(t_stack **lst)
+{
+	long	size;
+
+	size = 0;
+	while (*lst)
+	{
+		*lst = (*lst)->next;
+		size++;
+	}
+	return (size);
+}

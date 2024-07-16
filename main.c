@@ -15,17 +15,23 @@
 int	main(int ac, char **av)
 {
 	t_stack	*a;
-	//t_stack	*b;
+	t_stack	*b;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (!ps_parser(ac, av, &a))
 		return (0);
-	sa(&a);
+	printf("ENTREI");
+	pb(&a, &b);
 	while (a)
 	{
 		printf("%zu\n", a->number);
 		a = a->next;
+	}
+	while (b)
+	{
+		printf("%zu\n", b->number);
+		b = b->next;
 	}
 	return (0);
 }
