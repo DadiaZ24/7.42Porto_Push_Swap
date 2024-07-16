@@ -21,6 +21,8 @@ int	check_digits(char **av)
 	while (av[++i])
 	{
 		j = -1;
+		if (av[i][0] == '-' || av[i][0] == '+')
+			j++;
 		while (av[i][++j])
 			if (!ft_isdigit(av[i][j]))
 				return (0);
@@ -59,6 +61,20 @@ int	check_duplicates(t_stack **a)
 			next_node = next_node->next;
 		}
 		head = head->next;
+	}
+	return (1);
+}
+
+int	check_max_min(t_stack **a)
+{
+	t_stack	*tmp;
+
+	tmp = *a;
+	while (tmp)
+	{
+		if (tmp->number > INT_MAX || tmp->number < INT_MIN)
+			return (0);
+		tmp = tmp->next;
 	}
 	return (1);
 }

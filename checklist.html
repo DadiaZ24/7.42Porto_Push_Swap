@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>42 Common Core: Push Swap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .checklist {
+      list-style-type: none;
+      padding: 0;
+    }
+    .checklist > li {
+      margin: 20px 0;
+    }
+    .sub-checklist {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+    .sub-checklist li {
+      margin-bottom: 10px;
+      display: flex; /* Ensure items are aligned in a row */
+      align-items: center; /* Center items vertically */
+    }
+    .sub-checklist li label {
+      flex: 1; /* Take up remaining space */
+      padding: 10px; /* Add padding for spacing */
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .completed {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>42 Common Core: Push Swap</h1>
+  <ul class="checklist" id="checklist">
+    <!-- Checklist items will be generated here -->
+  </ul>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const checklistData = [
+        {
+          title: 'Parser',
+          subtopics: [
+            { title: 'The program must work with several numerical arguments' },
+            { title: 'The program also works if you receive a single character list as a parameter' },
+            { title: 'The program should NOT work if it encounters another character' },
+            { title: 'The program should NOT work if it encounters a duplicated number' },
+            { title: 'The program should work with INT MAX & INT MIN' },
+            { title: 'Nothing has been specified when strings and int are mixed. It\'s up to you what you want to do' }
+          ]
+        },
+        {
+          title: 'Operations',
+          subtopics: [
+            { title: 'sa (swap a): Swap the first 2 elements at the top of stack a' },
+            { title: 'sb (swap b ) :  If there are 2 numbers, swap the first 2 elements at the top of the stack b.' },
+            { title: 'sb (swap b): Swap the first 2 elements at the top of stack b' },
+            { title: 'ss : sa and sb at the same time.' },
+            { title: 'pa (push a): Take the first element at the top of b and put it at the top of a' },
+            { title: 'pb (push b): Take the first element at the top of a and put it at the top of b.' },
+            { title: 'ra (rotate a): Shift up all elements of stack a by 1.' },
+            { title: 'rb (rotate b): Shift up all elements of stack b by 1.' },
+            { title: 'rr : ra and rb at the same time.' },
+            { title: 'rra (reverse rotate a): Shift down all elements of stack a by 1.' },
+            { title: 'rrb (reverse rotate b): Shift down all elements of stack b by 1.' },
+            { title: 'rrr : rra and rrb at the same time.' }
+          ]
+        },
+        {
+          title: 'Sorting/Algorithm',
+          subtopics: [
+            { title: 'Check if the order of the list is sorted' },
+            { title: 'Make small algorithms for small numbers:' },
+            { title: '	2 numbers' },
+            { title: '	3 numbers' },
+            { title: '	4 numbers' },
+			{ title: '	5 numbers' },
+			{ title: 'Create the algorithm (radix)' }
+          ]
+        },
+        {
+          title: 'Final checks',
+          subtopics: [
+            { title: 'Norminette?' },
+            { title: 'Valgrind?' },
+			{ title: 'Valgrind with test errors?' },
+			{ title: 'Every test is ready to go?' },
+          ]
+        }
+      ];
+
+      const checklist = document.getElementById('checklist');
+
+      checklistData.forEach((topic, topicIndex) => {
+        const topicItem = document.createElement('li');
+
+        const topicTitle = document.createElement('h2');
+        topicTitle.textContent = topic.title;
+        topicItem.appendChild(topicTitle);
+
+        const subChecklist = document.createElement('ul');
+        subChecklist.className = 'sub-checklist';
+
+        topic.subtopics.forEach((subtopic, subtopicIndex) => {
+          const listItem = document.createElement('li');
+          listItem.style.display = 'flex'; // Ensure items are aligned in a row
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.id = `task${topicIndex + 1}_${subtopicIndex + 1}`;
+          
+          const label = document.createElement('label');
+          label.htmlFor = checkbox.id;
+          label.textContent = subtopic.title;
+          label.style.flex = '1'; // Take up remaining space
+          label.style.padding = '10px'; // Add padding for spacing
+          label.style.borderRadius = '5px';
+          label.style.cursor = 'pointer';
+
+          listItem.appendChild(checkbox);
+          listItem.appendChild(label);
+          subChecklist.appendChild(listItem);
+
+          // Load saved state
+          const savedState = localStorage.getItem(checkbox.id);
+          if (savedState === 'checked') {
+            checkbox.checked = true;
+            label.classList.add('completed');
+          }
+
+          // Save state on change
+          checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+              localStorage.setItem(checkbox.id, 'checked');
+              label.classList.add('completed');
+            } else {
+              localStorage.removeItem(checkbox.id);
+              label.classList.remove('completed');
+            }
+          });
+        });
+
+        topicItem.appendChild(subChecklist);
+        checklist.appendChild(topicItem);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -35,6 +35,8 @@
 / actual: %d) \n"
 # define ERROR_ISDIGIT "%s%s%s Invalid data -> you can only input digits"
 # define ERROR_DUP "%s%s%s Invalid data -> you have duplicate numbers"
+# define ERROR_MAX_MIN "%s%s%s Invalid data -> you numbers should be INTs \
+ (check limits.h: INT_MAX and INT_MIN)"
 
 //________________________________________________________________
 //|__________________________[STRUCTURES]_________________________|
@@ -42,7 +44,7 @@
 
 typedef struct s_stack
 {
-	int				number;
+	long			number;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
@@ -52,7 +54,7 @@ typedef struct s_stack
 //|_______________________________________________________________|
 
 void	organize_data(char **av, char **split, t_stack **a);
-t_stack	*create_new_node(int number);
+t_stack	*create_new_node(long number);
 t_stack	*last_node(t_stack *stack);
 void	lst_add_end(t_stack **list, t_stack *node);
 int		check_digits(char **av);
@@ -62,5 +64,11 @@ void	free_split(char **split);
 void	init_data(t_stack **a, t_stack **b);
 int		string_to_int(int ac, char **av, t_stack **a);
 int		check_duplicates(t_stack **a);
+int		check_max_min(t_stack **a);
+void    swap_nodes(t_stack **stack);
+void    sa(t_stack **a);
+void    sb(t_stack **b);
+void    ss(t_stack **b, t_stack **a);
+
 
 #endif

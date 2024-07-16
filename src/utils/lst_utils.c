@@ -12,7 +12,7 @@
 
 #include "../../include/push_swap.h"
 
-t_stack	*create_new_node(int number)
+t_stack	*create_new_node(long number)
 {
 	t_stack	*node;
 

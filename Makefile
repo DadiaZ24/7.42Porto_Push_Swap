@@ -24,6 +24,7 @@ SRC =	main.c \
 		$(SRC_DIR)/parser/parser_utils.c \
 		$(SRC_DIR)/inits/init_data.c \
 		$(SRC_DIR)/utils/free_utils.c \
+		$(SRC_DIR)/operations/swap.c \
 
 OBJ = $(SRC:.c=.o)
 

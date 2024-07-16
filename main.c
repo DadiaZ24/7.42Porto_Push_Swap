@@ -15,12 +15,17 @@
 int	main(int ac, char **av)
 {
 	t_stack	*a;
-	t_stack	*b;
+	//t_stack	*b;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	if (!ps_parser(ac, av, &a))
 		return (0);
-	(void)av;
+	sa(&a);
+	while (a)
+	{
+		printf("%zu\n", a->number);
+		a = a->next;
+	}
 	return (0);
 }

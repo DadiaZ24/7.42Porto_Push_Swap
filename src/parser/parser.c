@@ -33,5 +33,7 @@ int	ps_parser(int ac, char **av, t_stack **a)
 	organize_data(av, split, a);
 	if (!check_duplicates(a))
 		return (ft_printf(ERROR_DUP, RED, ERROR, DEFAULT_COLOR), 0);
+	if (!check_max_min(a))
+		return (ft_printf(ERROR_MAX_MIN, RED, ERROR, DEFAULT_COLOR), 0);
 	return (1);
 }
