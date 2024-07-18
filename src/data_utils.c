@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	organize_data(char **av, char **split, t_stack **a)
+int	organize_data(char **av, char **split, t_stack **a)
 {
 	int		i;
 	t_stack	*tmp;
@@ -34,4 +34,22 @@ void	organize_data(char **av, char **split, t_stack **a)
 			lst_add_end(&tmp, create_new_node(ft_atol(av[i])));
 	}
 	*a = tmp;
+	if (check_organized(a))
+		return (0);
+	return (1);
+}
+
+int	check_organized(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->next)
+			if (tmp->number > tmp->next->number)
+				return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

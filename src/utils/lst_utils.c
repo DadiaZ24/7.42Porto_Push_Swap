@@ -21,22 +21,25 @@ t_stack	*create_new_node(long number)
 		return (NULL);
 	node->number = number;
 	node->next = NULL;
-	node->prev = NULL;
 	return (node);
 }
 
-t_stack	*last_node(t_stack *stack)
+t_stack	*last_node(t_stack **stack)
 {
-	if (!stack)
+	t_stack	*tmp;
+
+	tmp = *stack;
+	if (!tmp)
 		return (NULL);
-	while (stack)
+	while (tmp)
 	{
-		if (!stack->next)
-			return (stack);
-		stack = stack->next;
+		if (!tmp->next)
+			return (tmp);
+		tmp = tmp->next;
 	}
-	return (stack);
+	return (tmp);
 }
+
 
 void	lst_add_end(t_stack **list, t_stack *node)
 {
@@ -49,8 +52,7 @@ void	lst_add_end(t_stack **list, t_stack *node)
 		*list = node;
 		return ;
 	}
-	tmp = last_node(*list);
-	node->prev = tmp;
+	tmp = last_node(list);
 	tmp->next = node;
 }
 

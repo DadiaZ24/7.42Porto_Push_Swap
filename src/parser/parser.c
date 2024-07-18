@@ -30,7 +30,8 @@ int	ps_parser(int ac, char **av, t_stack **a)
 	else
 		if (!check_digits(av))
 			return (ft_printf(ERROR_ISDIGIT, RED, ERROR, DEFAULT_COLOR), 0);
-	organize_data(av, split, a);
+	if (!organize_data(av, split, a))
+		return (0);
 	if (!check_duplicates(a))
 		return (ft_printf(ERROR_DUP, RED, ERROR, DEFAULT_COLOR), 0);
 	if (!check_max_min(a))

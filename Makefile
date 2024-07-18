@@ -22,10 +22,12 @@ SRC =	main.c \
 		$(SRC_DIR)/utils/lst_utils.c \
 		$(SRC_DIR)/parser/parser.c \
 		$(SRC_DIR)/parser/parser_utils.c \
-		$(SRC_DIR)/inits/init_data.c \
 		$(SRC_DIR)/utils/free_utils.c \
 		$(SRC_DIR)/operations/swap.c \
 		$(SRC_DIR)/operations/push.c \
+		$(SRC_DIR)/operations/rotate_up.c \
+		$(SRC_DIR)/operations/rotate_down.c \
+		$(SRC_DIR)/algorithm/small.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -36,7 +38,7 @@ all: deps $(NAME)
 deps: 
 	$(MAKE) -C ./libs/libft
 
-$(NAME): $(OBJ) $(DEPS)
+$(NAME): $(OBJ) $(DEPS) $(SRC)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean: 

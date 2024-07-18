@@ -19,19 +19,17 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+	//(void)b;
 	if (!ps_parser(ac, av, &a))
 		return (0);
-	printf("ENTREI");
-	pb(&a, &b);
-	while (a)
+
+
+	//Testing environment
+	algo_three(&a);
+	/* while (a)
 	{
 		printf("%zu\n", a->number);
 		a = a->next;
-	}
-	while (b)
-	{
-		printf("%zu\n", b->number);
-		b = b->next;
-	}
+	} */
 	return (0);
 }
