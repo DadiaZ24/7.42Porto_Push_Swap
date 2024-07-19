@@ -23,12 +23,11 @@ int	main(int ac, char **av)
 	if (!ps_parser(ac, av, &a))
 		return (0);
 
-
 	//Testing environment
-	algo_three(&a);
+	radix(&a, &b);
 	/* while (a)
 	{
-		printf("%zu\n", a->number);
+		printf("Number: %zu ----> %d\n", a->number, a->index);
 		a = a->next;
 	} */
 	return (0);

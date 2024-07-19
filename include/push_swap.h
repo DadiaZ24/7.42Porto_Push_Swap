@@ -46,8 +46,15 @@ typedef struct s_stack
 {
 	long			number;
 	int				index;
+	int				actual_index;
+	int				cost;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct s_help
+{
+	int	stack_size;
+}	t_help;
 
 //________________________________________________________________
 //|__________________________[FUNCTIONS]__________________________|
@@ -73,6 +80,15 @@ void    rr(t_stack **a, t_stack **b);
 //Algorithm
 void	algo_two(t_stack **a);
 void	algo_three(t_stack **a);
+void	algo_four(t_stack **a, t_stack **b);
+void	algo_five(t_stack **a, t_stack **b);
+void	set_index_number(t_stack **stack);
+void	sort_list(t_stack **stack);
+void	put_index_stack(t_stack **stack, t_stack **new_stack);
+int		get_min(t_stack **stack);
+int		get_max(t_stack **stack);
+void	radix(t_stack **a, t_stack **b);
+int		get_max_bits(t_stack **a);
 
 //Parser
 int		check_digits(char **av);

@@ -28,7 +28,10 @@ void    push_nodes(t_stack **stack_src, t_stack **stack_dst)
     else
     {
         *stack_dst = tmp_src;
-        (*stack_src) = (*stack_src)->next;
+        if ((*stack_src)->next)
+            (*stack_src) = (*stack_src)->next;
+        else
+            *stack_src = NULL;
         (*stack_dst)->next = tmp_dst;
     }
 }

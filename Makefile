@@ -14,6 +14,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 SRC_DIR = ./src
+PVIS = ./push_swap_visualizer/build/bin/visualizer
 
 NAME = push_swap
 
@@ -28,6 +29,8 @@ SRC =	main.c \
 		$(SRC_DIR)/operations/rotate_up.c \
 		$(SRC_DIR)/operations/rotate_down.c \
 		$(SRC_DIR)/algorithm/small.c \
+		$(SRC_DIR)/algorithm/small_utils.c \
+		$(SRC_DIR)/algorithm/radix.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -47,5 +50,8 @@ clean:
 
 fclean: clean
 	@$(RM) $(LIBFT) $(NAME)
+
+gdb:
+	gdb -tui ./push_swap
 
 re: fclean all

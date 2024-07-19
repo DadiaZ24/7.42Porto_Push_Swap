@@ -58,12 +58,14 @@ void	lst_add_end(t_stack **list, t_stack *node)
 
 long	get_lst_size(t_stack **lst)
 {
+	t_stack	*tmp;
 	long	size;
 
+	tmp = *lst;
 	size = 0;
-	while (*lst)
+	while (tmp)
 	{
-		*lst = (*lst)->next;
+		tmp = tmp->next;
 		size++;
 	}
 	return (size);

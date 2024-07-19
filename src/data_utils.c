@@ -33,7 +33,6 @@ int	organize_data(char **av, char **split, t_stack **a)
 		while (av[++i])
 			lst_add_end(&tmp, create_new_node(ft_atol(av[i])));
 	}
-	*a = tmp;
 	if (check_organized(a))
 		return (0);
 	return (1);
