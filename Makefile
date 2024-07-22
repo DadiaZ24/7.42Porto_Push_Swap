@@ -10,15 +10,27 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-RM = rm -f
-SRC_DIR = ./src
-PVIS = ./push_swap_visualizer/build/bin/visualizer
+
+# _______________________________________________________________
+#|___________________________[VARIABLES]_________________________|
+#|_______________________________________________________________|
 
 NAME = push_swap
+LIBFT = libs/libft/libft.a
+SRC_DIR = ./src
+OBJ_DIR = ./obj
 
-SRC =	main.c \
+#COMPILE/RULE TOOLS
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g -I./include
+RM = rm -f
+RMDIR = rmdir
+
+# _______________________________________________________________
+#|___________________________[SRC FILES]_________________________|
+#|_______________________________________________________________|
+
+SRC =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/data_utils.c \
 		$(SRC_DIR)/utils/lst_utils.c \
 		$(SRC_DIR)/parser/parser.c \
@@ -33,24 +45,42 @@ SRC =	main.c \
 		$(SRC_DIR)/algorithm/small_utils.c \
 		$(SRC_DIR)/algorithm/radix.c \
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-LIBFT = libs/libft/libft.a
+# _______________________________________________________________
+#|_____________________________[RULES]___________________________|
+#|_______________________________________________________________|
 
 all: deps $(NAME)
 
-deps: 
+deps:
+#	COMPILE LIBFT LIBRARY
 	$(MAKE) -C ./libs/libft
 
-$(NAME): $(OBJ) $(DEPS) $(SRC)
+#	CREATE OBJECTS FOLDER
+	@mkdir -p $(OBJ_DIR)/algorithm \
+		$(OBJ_DIR)/operations \
+		$(OBJ_DIR)/parser \
+		$(OBJ_DIR)/utils
+	@echo "Created object directories."
+
+$(NAME): $(OBJ) $(DEPS)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
 	$(MAKE) clean -C ./libs/libft
-	@$(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
 	@$(RM) $(LIBFT) $(NAME)
+	@$(RMDIR) $(OBJ_DIR)/algorithm \
+			$(OBJ_DIR)/operations \
+			$(OBJ_DIR)/parser \
+			$(OBJ_DIR)/utils \
+			$(OBJ_DIR)
 
 gdb:
 	gdb -tui ./push_swap
