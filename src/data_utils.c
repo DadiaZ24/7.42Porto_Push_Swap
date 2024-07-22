@@ -24,6 +24,7 @@ int	organize_data(char **av, char **split, t_stack **a)
 		i = 0;
 		while (split[++i])
 			lst_add_end(&tmp, create_new_node(ft_atol(split[i])));
+		free_split(split);
 	}
 	else
 	{
@@ -34,7 +35,7 @@ int	organize_data(char **av, char **split, t_stack **a)
 			lst_add_end(&tmp, create_new_node(ft_atol(av[i])));
 	}
 	if (check_organized(a))
-		return (0);
+		return (free_list(a), 0);
 	return (1);
 }
 

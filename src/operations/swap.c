@@ -12,33 +12,33 @@
 
 #include "../../include/push_swap.h"
 
-void    swap_nodes(t_stack **stack)
+void	swap_nodes(t_stack **stack)
 {
-    t_stack *tmp;
-    int     n;
+	t_stack	*tmp;
+	int		n;
 
-    n = (*stack)->next->number;
-    tmp = *stack;
-    tmp = tmp->next;
-    tmp->number = (*stack)->number;
-    (*stack)->number = n;
+	n = (*stack)->next->number;
+	tmp = *stack;
+	tmp = tmp->next;
+	tmp->number = (*stack)->number;
+	(*stack)->number = n;
 }
 
-void    sa(t_stack **a)
+void	sa(t_stack **a)
 {
-    swap_nodes(a);
-    write(1, "sa\n", 3);
+	swap_nodes(a);
+	write(1, "sa\n", 3);
 }
 
-void    sb(t_stack **b)
+void	sb(t_stack **b)
 {
-    swap_nodes(b);
-    write(1, "sb\n", 3);
+	swap_nodes(b);
+	write(1, "sb\n", 3);
 }
 
-void    ss(t_stack **b, t_stack **a)
+void	ss(t_stack **b, t_stack **a)
 {
-    swap_nodes(b);
-    swap_nodes(a);
-    write(1, "ss\n", 3);
+	swap_nodes(b);
+	swap_nodes(a);
+	write(1, "ss\n", 3);
 }

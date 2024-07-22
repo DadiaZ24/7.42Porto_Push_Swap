@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 16:42:16 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/19 20:55:20 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:36:18 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	algo_three(t_stack **a)
 	int		max;
 
 	max = get_max(a);
-	
 	if (max == (*a)->number)
 		ra(a);
 	if (max == (*a)->next->number)

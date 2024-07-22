@@ -6,7 +6,7 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 21:00:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/19 21:26:30 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:35:58 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	radix(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
-	int	maxbits;
-	int	i;
-	int	j;
-	int	stacksize;
-	
+	int		maxbits;
+	int		i;
+	int		j;
+	int		stacksize;
+
 	set_index_number(a);
 	maxbits = get_max_bits(a);
 	i = -1;

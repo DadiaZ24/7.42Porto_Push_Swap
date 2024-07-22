@@ -40,7 +40,6 @@ t_stack	*last_node(t_stack **stack)
 	return (tmp);
 }
 
-
 void	lst_add_end(t_stack **list, t_stack *node)
 {
 	t_stack	*tmp;

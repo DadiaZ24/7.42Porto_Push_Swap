@@ -24,6 +24,7 @@ SRC =	main.c \
 		$(SRC_DIR)/parser/parser.c \
 		$(SRC_DIR)/parser/parser_utils.c \
 		$(SRC_DIR)/utils/free_utils.c \
+		$(SRC_DIR)/utils/numbers.c \
 		$(SRC_DIR)/operations/swap.c \
 		$(SRC_DIR)/operations/push.c \
 		$(SRC_DIR)/operations/rotate_up.c \

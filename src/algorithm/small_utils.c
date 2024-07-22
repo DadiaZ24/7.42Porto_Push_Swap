@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   small_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:36:38 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/19 20:46:32 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/22 16:07:27 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_list(t_stack **stack)
 {
 	t_stack	*tmp;
 	long	ltmp;
-	int i;
+	int		i;
 
 	tmp = *stack;
 	ltmp = 0;
@@ -45,7 +45,7 @@ void	set_index_number(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*new_stack;
-	
+
 	new_stack = NULL;
 	tmp = *stack;
 	while (tmp)
@@ -56,7 +56,7 @@ void	set_index_number(t_stack **stack)
 	sort_list(&new_stack);
 	tmp = *stack;
 	put_index_stack(&tmp, &new_stack);
-	
+	free_list(&new_stack);
 }
 
 void	put_index_stack(t_stack **stack, t_stack **new_stack)
@@ -84,9 +84,9 @@ void	put_index_stack(t_stack **stack, t_stack **new_stack)
 
 int	get_min(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		min;
-	
+
 	tmp = *stack;
 	min = tmp->number;
 	while (tmp && tmp->next)
@@ -100,9 +100,9 @@ int	get_min(t_stack **stack)
 
 int	get_max(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		max;
-	
+
 	tmp = *stack;
 	max = tmp->number;
 	while (tmp && tmp->next)

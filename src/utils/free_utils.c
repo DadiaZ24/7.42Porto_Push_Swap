@@ -34,3 +34,9 @@ void	free_split(char **split)
 		free(split[i]);
 	free(split);
 }
+
+void	free_stacks(t_stack **a, t_stack **b)
+{
+	free_list(a);
+	free_list(b);
+}
