@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 10:17:45 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/22 15:52:06 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:03:30 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	rotate_node_up(t_stack **stack)
 {

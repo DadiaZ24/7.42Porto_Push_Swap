@@ -31,7 +31,7 @@ RMDIR = rmdir
 #|_______________________________________________________________|
 
 SRC =	$(SRC_DIR)/main.c \
-		$(SRC_DIR)/data_utils.c \
+		$(SRC_DIR)/utils/data_utils.c \
 		$(SRC_DIR)/utils/lst_utils.c \
 		$(SRC_DIR)/parser/parser.c \
 		$(SRC_DIR)/parser/parser_utils.c \

@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 15:36:38 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/22 16:07:27 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:41:36 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	sort_list(t_stack **stack)
 {
@@ -104,12 +104,25 @@ int	get_max(t_stack **stack)
 	int		max;
 
 	tmp = *stack;
-	max = tmp->number;
-	while (tmp && tmp->next)
+	if (tmp->index)
 	{
-		if (max < tmp->next->number)
-			max = tmp->next->number;
-		tmp = tmp->next;
+		max = 0;
+		while (tmp)
+		{
+			if (max < tmp->index)
+				max = tmp->index;
+			tmp = tmp->next;
+		}
+	}
+	else
+	{
+		max = 0;
+		while (tmp)
+		{
+			if (max < tmp->number)
+				max = tmp->number;
+			tmp = tmp->next;
+		}
 	}
 	return (max);
 }

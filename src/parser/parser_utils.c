@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 int	check_digits(char **av)
 {
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	while (av[++i])
 	{
 		j = -1;

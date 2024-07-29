@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 int	ps_parser(int ac, char **av, t_stack **a)
 {
@@ -23,12 +23,12 @@ int	ps_parser(int ac, char **av, t_stack **a)
 	{
 		split = ft_split(av[1], ' ');
 		if (!check_digits(split))
-			return (free_split(split), 0);
-		else
-			string_to_int(ac, av, a);
+			return (ft_printf(ERROR_ISDIGIT, RED, ERROR, DEFAULT_COLOR),
+				free_split(split), 0);
+		string_to_int(ac, av, a);
 	}
 	else
-		if (!check_digits(av))
+		if (!check_digits(av + 1))
 			return (ft_printf(ERROR_ISDIGIT, RED, ERROR, DEFAULT_COLOR), 0);
 	if (!organize_data(av, split, a))
 		return (free_list(a), 0);

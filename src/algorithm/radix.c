@@ -6,11 +6,11 @@
 /*   By: ddias-fe <ddias-fe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 21:00:03 by ddias-fe          #+#    #+#             */
-/*   Updated: 2024/07/22 15:35:58 by ddias-fe         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:03:06 by ddias-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "push_swap.h"
 
 void	radix(t_stack **a, t_stack **b)
 {
@@ -47,7 +47,7 @@ int	get_max_bits(t_stack **a)
 
 	maxbits = 0;
 	max = get_max(a);
-	while ((max >> maxbits) > 0)
+	while ((max >> maxbits) != 0)
 		maxbits++;
 	return (maxbits);
 }
