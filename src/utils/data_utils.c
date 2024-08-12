@@ -34,8 +34,6 @@ int	organize_data(char **av, char **split, t_stack **a)
 		while (av[++i])
 			lst_add_end(&tmp, create_new_node(ft_atol(av[i])));
 	}
-	if (check_organized(a))
-		return (free_list(a), 0);
 	return (1);
 }
 
@@ -47,7 +45,7 @@ int	check_organized(t_stack **stack)
 	while (tmp)
 	{
 		if (tmp->next)
-			if (tmp->number > tmp->next->number)
+			if (tmp->number >= tmp->next->number)
 				return (0);
 		tmp = tmp->next;
 	}

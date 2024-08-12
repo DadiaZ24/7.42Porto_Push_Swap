@@ -29,8 +29,10 @@ void	free_split(char **split)
 {
 	int	i;
 
-	i = -1;
-	while (split[++i])
+	i = 0;
+	while (split[i])
+		i++;
+	while (i--)
 		free(split[i]);
 	free(split);
 }

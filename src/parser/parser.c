@@ -22,10 +22,8 @@ int	ps_parser(int ac, char **av, t_stack **a)
 	if (ac == 2)
 	{
 		split = ft_split(av[1], ' ');
-		if (!check_digits(split))
-			return (ft_printf(ERROR_ISDIGIT, RED, ERROR, DEFAULT_COLOR),
-				free_split(split), 0);
-		string_to_int(ac, av, a);
+		if (!ps_parser_ac2(ac, split))
+			return (free_split(split), 0);
 	}
 	else
 		if (!check_digits(av + 1))
@@ -38,5 +36,17 @@ int	ps_parser(int ac, char **av, t_stack **a)
 	if (!check_max_min(a))
 		return (free_list(a), ft_printf(ERROR_MAX_MIN, RED, ERROR,
 				DEFAULT_COLOR), 0);
+	if (!check_organized(a))
+		return (free_list(a), 0);
+	return (1);
+}
+
+int	ps_parser_ac2(int ac, char **split)
+{
+	if (ac == 2)
+	{
+		if (!check_digits(split))
+			return (0);
+	}
 	return (1);
 }

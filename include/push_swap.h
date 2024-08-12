@@ -90,9 +90,10 @@ int		check_digits(char **av);
 int		ps_parser(int ac, char **av, t_stack **a);
 int		check_duplicates(t_stack **a);
 int		check_max_min(t_stack **a);
+int		ps_parser_ac2(int ac, char **split);
 
 //Utils
-int		string_to_int(int ac, char **av, t_stack **a);
+int		string_to_int(int ac, char **av, char **split, t_stack **a);
 long	get_lst_size(t_stack **lst);
 int		organize_data(char **av, char **split, t_stack **a);
 void	lst_add_end(t_stack **list, t_stack *node);

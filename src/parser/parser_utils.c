@@ -26,17 +26,16 @@ int	check_digits(char **av)
 		while (av[i][++j])
 			if (!ft_isdigit(av[i][j]))
 				return (0);
+		if (j > 11)
+			return (ft_printf(ERROR_MAX_MIN, RED, ERROR, DEFAULT_COLOR), 0);
 	}
 	return (1);
 }
 
-int	string_to_int(int ac, char **av, t_stack **a)
+int	string_to_int(int ac, char **av, char **split, t_stack **a)
 {
-	char	**split;
-
 	if (ac == 2)
 	{
-		split = ft_split(av[1], ' ');
 		if (!check_digits(split))
 			return (free_split(split), 0);
 		organize_data(av, split, a);
